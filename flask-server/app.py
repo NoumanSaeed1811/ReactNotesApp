@@ -15,10 +15,6 @@ class Notes(db.Model):
     date_created = db.Column(db.DateTime, default = datetime.now().replace(microsecond=0))
     def __repr__(self):
         return f"{self.sno} - {self.title}"
-
-
-from flask import request, jsonify
-
 @app.route("/api/notes", methods=['GET'])
 def get_notes():
     notes = Notes.query.all()
